@@ -1,0 +1,94 @@
+* {
+  font-size: 20px;
+}
+
+main {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  padding: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+}
+
+ul {
+  padding-left: 1.5rem;
+}
+
+li {
+  font-size: 0.7rem;
+  margin-bottom: 1rem;
+}
+
+.file-list {
+  width: 100%;
+  aspect-ratio: 3/2;
+  margin-inline: auto;
+  border: 1px #221e1b solid;
+  padding-block: 0.5rem;
+  overflow: auto;
+  position: relative;
+}
+
+.clear-btn {
+  position: absolute;
+  right: 0.6rem;
+  top: 0rem;
+  cursor: pointer;
+  padding: 0.2rem;
+}
+
+.file-input-zone {
+  width: 100%;
+  aspect-ratio: 3/2;
+  cursor: pointer;
+  margin-inline: auto;
+  border: 1px white dashed;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.lucide {
+  margin-bottom: 1rem;
+  stroke: rgba(88, 88, 88, 0.7);
+  stroke-width: 0.8px;
+}
+
+.lucide-eraser {
+  margin: 0 !important;
+  transition: all 100ms;
+  stroke: rgb(212, 63, 63);
+  stroke-width: 0.1rem;
+}
+
+.lucide-eraser:hover {
+  scale: 115%;
+}
+
+.file-input-zone.dragover {
+  border-style: solid;
+  filter: brightness(120%);
+}
+
+.file-input-zone span,
+.file-input-zone span > * {
+  font-size: 0.7rem;
+}
+
+.file-input-zone span > span {
+  color: rgb(3, 152, 221);
+}
+
+.file-input-zone span > span:hover {
+  text-decoration: underline;
+}
+
+.btn-container {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: flex-end;
+}
