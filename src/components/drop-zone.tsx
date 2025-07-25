@@ -11,14 +11,11 @@ export default function DropZone() {
   const setFiles = useFileStore((s) => s.setFiles);
   const [isDraggingOver, setIsDraggingOver] = useState(false);
 
-  function setTextFiles(fileList: FileList) {
-    const fileArray = parseFileListToArray(fileList);
-    setFiles(fileArray.filter((f) => f?.type === "text/plain") as File[]);
-  }
-
   function handleInputChange(e: ChangeEvent<HTMLInputElement>) {
     if (e.target.files) {
-      setTextFiles(e.target.files);
+      const fileArray = parseFileListToArray(e.target.files);
+      setFiles(fileArray.filter((f) => f?.type === "text/plain") as File[]);
+
       setIsDraggingOver(false);
     }
   }
@@ -41,9 +38,11 @@ export default function DropZone() {
 
         const files: File[] = [];
         for (const path of event.payload.paths) {
+          if (!path.endsWith(".txt")) continue;
+
           files.push({
             name: await basename(path),
-            type: path.endsWith(".txt") ? "plain/txt" : "idk",
+            type: "plain/txt",
             text: () => readTextFile(path),
           });
         }
